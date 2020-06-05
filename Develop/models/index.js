@@ -1,9 +1,9 @@
-'use strict';
+'use strict'; //lint
 
 var fs        = require('fs');
 var path      = require('path');
 var Sequelize = require('sequelize');
-var basename  = path.basename(module.filename);
+var basename  = path.basename(module.filename); //from sequelize
 var env       = process.env.NODE_ENV || 'development';
 var config    = require(__dirname + '/../config/config.json')[env];
 var db        = {};
@@ -28,9 +28,12 @@ Object.keys(db).forEach(function(modelName) {
   if (db[modelName].associate) {
     db[modelName].associate(db);
   }
-});
+});//starter code for sequelize
 
 db.sequelize = sequelize;
-db.Sequelize = Sequelize;
+db.Sequelize = Sequelize;//?one is constructor one is method?
 
 module.exports = db;
+
+
+//boilerplate code to utilize sequelize with express
